@@ -1,0 +1,1 @@
+html += "<li class='swiper-slide slide"+slideIdx+"'>";
