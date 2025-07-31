@@ -1,0 +1,5 @@
+ setTimeout(function(){
+	 $('#tree>ul>li>ul>li>a').attr('tabindex',0);
+	 $('#tree>ul>li>ul>li>ul>li>a').attr('tabindex',0);
+	 $('#tree').attr('aria-multiselectable', false);
+ },500);

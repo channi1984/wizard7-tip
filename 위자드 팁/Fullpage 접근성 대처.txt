@@ -1,0 +1,27 @@
+//단락 이동
+//Fullpage Accessibility
+    $('#multipleContentsDiv_suhyup_4').append('<div class="next-move click1"><button type="button">다음 단락으로 이동</button></div>');
+    $('#multipleContentsDiv_suhyup_17').append('<div class="next-move click2"><button type="button">다음 단락으로 이동</button></div>');
+    $('#multipleContentsDiv_suhyup_23').append('<div class="next-move click3"><button type="button">다음 단락으로 이동</button></div>');
+    $('#multipleContentsDiv_suhyup_31').append('<div class="next-move click4"><button type="button">다음 단락으로 이동</button></div>');
+    $('#multipleContentsDiv_suhyup_41').append('<div class="next-move click5"><button type="button">다음 단락으로 이동</button></div>');
+
+    $('.next-move.click1').on('click', function () {
+        $.fn.fullpage.moveTo('section2', 1);
+    });
+
+    $('.next-move.click2').on('click', function () {
+        $.fn.fullpage.moveTo('section3', 1);
+    });
+
+    $('.next-move.click3').on('click', function () {
+        $.fn.fullpage.moveTo('section4', 1);
+    });
+
+    $('.next-move.click4').on('click', function () {
+        $.fn.fullpage.moveTo('section5', 1);
+    });
+
+    $('.next-move.click5').on('click', function () {
+        $.fn.fullpage.moveTo('section6', 1);
+    });

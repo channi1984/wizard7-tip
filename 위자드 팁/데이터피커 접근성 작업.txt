@@ -1,0 +1,32 @@
+// readonly 속성 제거
+
+$("#rgsBgnde").removeAttr("readonly");
+
+
+// 날짜 유효성 검사
+
+$("#rgsBgnde").on("change", function() {
+
+
+ var dateValue = $(this).val();
+
+ var datePattern = /^\d{4}\.\d{2}\.\d{2}$/;  // "yyyy.mm.dd" 형식 정규식
+
+
+
+ // 형식이 맞지 않으면 경고 메시지 표시 및 입력값 초기화
+
+ if (!datePattern.test(dateValue)) {
+
+   alert("날짜를 'yyyy.mm.dd' 형식으로 입력해 주세요.", function(){
+
+    $("#rgsBgnde").focus();
+
+   });
+
+  $(this).val("");  // 잘못된 값 초기화
+
+ }
+
+
+});

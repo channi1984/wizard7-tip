@@ -1,0 +1,17 @@
+init: function () {
+  const realIndex = this.realIndex+1;
+  const totalIndex = this.slides.length - this.loopedSlides * 2
+
+  if(realIndex < 10) {
+    $('.wrap-visual .now').addClass('under10')
+  }
+  if(totalIndex < 10) {
+    $('.wrap-visual .total').addClass('under10')
+  }
+  $('.wrap-visual .now').text(realIndex);
+  $('.wrap-visual .total').text(totalIndex);
+},
+slideChange : function () {
+  const realIndex = this.realIndex+1;
+  $('.wrap-visual .now').text(realIndex + 1);
+},

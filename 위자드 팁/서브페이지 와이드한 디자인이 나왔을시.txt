@@ -1,0 +1,20 @@
+.wrap-contents .container {max-width: none;}
+
+
+
+.sub #_contentBuilder ._objTag,
+.sub #_contentBuilder ._objHtml,
+.sub #_contentBuilder ._objImage,
+.sub #_contentBuilder ._objWidget,
+.sub #_contentBuilder ._objHeading {max-width: 1500px; margin: 0 auto; height: auto !important; min-height: 25px !important; z-index: auto !important;}
+.sub #_contentBuilder ._objHeading {width: 100% !important;}
+.sub #_contentBuilder .full-width {max-width: none;}
+
+
+  function fullWidthCon() {
+    var fullEl = $('.full-width');
+    if (fullEl) {
+      fullEl.parents('._obj').addClass('full-width');
+    }
+  }
+  fullWidthCon();

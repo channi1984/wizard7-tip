@@ -1,0 +1,15 @@
+if($('body').hasClass('sub')){
+
+	//FancyBox Accessibility
+
+	$('[data-fancybox="gallery"]').fancybox({
+
+	  afterLoad : function(instance, current) {
+
+		current.$image.attr('alt', current.opts.$orig.find('img').attr('alt') );
+
+	  }
+
+	});
+
+  }

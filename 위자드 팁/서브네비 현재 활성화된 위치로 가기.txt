@@ -1,0 +1,5 @@
+$('.wrap-sub-navi .sub-navi > ul > li > .inner > button').on('click', function () {
+        $(this).parent().next().animate({
+          scrollTop: $(this).parent().next().find('a._active').position().top
+        },0);
+      })

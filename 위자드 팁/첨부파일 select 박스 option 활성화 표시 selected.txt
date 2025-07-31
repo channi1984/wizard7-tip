@@ -1,0 +1,12 @@
+document.getElementById("atchmnflObj").onchange = function() {
+
+    var optionIndex =Array.from(this.selectedOptions).map(option => option.index);
+
+    console.log(Number(optionIndex));
+
+    $("#atchmnflObj option").removeAttr("selected");
+
+    $("#atchmnflObj option").eq(optionIndex).attr('selected', 'selected');
+
+}
+

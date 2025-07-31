@@ -1,0 +1,14 @@
+$('.file-btn.add').on('click', function () {
+    setTimeout(function () {
+        $('._blockClose').focus(); //닫기버튼에 포커스
+
+        $('._blockClose').on('click', function () { //닫기버튼 클릭시
+            $('.file-btn.add').focus();//돌아가려는 버튼
+        })
+
+        var iframeEleButton = $('iframe[name="blockUI"]').contents().find('._areaButton input'); //아이프레임 내에 버튼 클릭시
+        iframeEleButton.on('click', function () {
+            $('.file-btn.add').focus(); //돌아가려는 버튼
+        });
+    }, 1000);
+});

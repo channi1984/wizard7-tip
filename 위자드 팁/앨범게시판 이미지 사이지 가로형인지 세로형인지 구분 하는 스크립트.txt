@@ -1,0 +1,11 @@
+$('.board-album .list-album > li .thumb img').each(function(){
+    var originalWidth = $(this).prop('naturalWidth');
+    var originalHeight = $(this).prop('naturalHeight');
+    if(originalWidth > originalHeight) {
+        console.log('가로형');
+        $(this).parent().addClass('horizone');
+    } else {
+        console.log('세로형');
+        $(this).parent().addClass('vertical');
+    }
+});

@@ -1,0 +1,28 @@
+사이드 네비 위치
+
+WEB-INF/jsp/include/mngr/edit/edit_body.jsp 
+
+
+편집모드 스크롤 iframe 제거 하는 jsp 위치
+
+/WEB-INF/jsp/k2web/com/cop/site/siteMngr/contents_edit_view.jsp
+
+편집모드 스크롤바 효과 없애기
+
+/Web-home/_UI/js/editable/general/editable.js
+
+
+
+// mScrollbar = $("body").mCustomScrollbar({
+      //  autoHideScrollbar: true,
+      //       autoExpandScrollbar: true,
+      //       keyboard:{
+      //        //keyboard 스크롤 사용안함
+      //        enable:false
+      //       },
+      //       callbacks:{
+      //        whileScrolling: function() {
+      //          scrollingTop = (-this.mcs.top);
+      //        }
+      //       }
+      //       });

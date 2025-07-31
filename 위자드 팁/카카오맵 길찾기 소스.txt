@@ -1,0 +1,5 @@
+<a href="https://map.kakao.com/link/map/성결대학교,37.3801167072464,126.92726097491163" target="_blank" title="새창" class="btn-location">길찾기</a>
+
+
+
+위도 경도는 https://tablog.neocities.org/keywordposition.html 여기서 찾기

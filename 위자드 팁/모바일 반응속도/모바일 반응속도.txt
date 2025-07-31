@@ -1,0 +1,10 @@
+<script src="/Web-home/_UI/js/_lib/fastclick.js"></script>
+
+//클릭속도 개선
+
+window.addEventListener('load', function() {
+
+	FastClick.attach(document.body);
+
+}, false);
+

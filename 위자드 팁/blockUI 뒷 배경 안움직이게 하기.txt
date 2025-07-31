@@ -1,0 +1,36 @@
+$('.new_win').on('click',function(e){
+
+	 $.blockUI({ 
+
+		 onBlock: function() {
+
+			$('._blockClose').on('click',function(e){
+
+				$.unblockUI({
+
+					onUnblock: function() { 
+
+						$('html').css('overflow','auto');
+
+						//console.log('close!!');
+
+					}
+
+				});
+
+			});
+
+		 } 
+
+	 }); 
+
+
+
+	$('html').css('overflow','hidden');
+
+	e.preventDefault();
+
+	//console.log('pop!!');
+
+});
+

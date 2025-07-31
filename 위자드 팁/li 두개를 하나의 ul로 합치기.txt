@@ -1,0 +1,10 @@
+    var divs = $(".thumb-ul > li");
+    for (var i = 0; i < divs.length; i += 2) {
+        divs.slice(i, i + 2).wrapAll("<div class='wrap'></div>");
+    }
+
+    $('.profile .thumb-ul .wrap').each(function(){
+        if($(this).find('.thumb-li').length === 1) {
+            $(this).append('<li class="thumb-li"></li>')
+        }
+    });

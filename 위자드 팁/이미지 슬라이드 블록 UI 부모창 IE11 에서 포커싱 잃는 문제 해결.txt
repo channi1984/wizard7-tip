@@ -1,0 +1,13 @@
+/Web-home/_SITES/js/fileupload/fileupload.js
+
+
+
+이파일에서 
+
+
+
+parent.unblockUI();
+
+아래 줄에 추가
+parent.focus();
+

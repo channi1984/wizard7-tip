@@ -1,0 +1,9 @@
+/CrossUploader/app/lib/slick/slick.grid.js
+
+
+
+여기서 
+
+
+
+focusable: false,

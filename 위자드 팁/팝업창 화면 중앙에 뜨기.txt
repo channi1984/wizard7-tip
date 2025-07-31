@@ -1,0 +1,8 @@
+function pop(width, height, url) {
+  var xPos = (screen.width / 2) - (width / 2);
+  xPos += window.screenLeft;
+  var yPos = (screen.height / 2) - (height / 2);
+  window.open(url, 'title', 'height=' + height + ',width=' + width + ',left=' + xPos + ',top=' + yPos + 'toolbar=yes,scrollbars=yes,resizable=yes,fullscreen=yes');
+}
+
+<button type="button" onclick = "pop(700, 600, './popup/pop1.html')"> 9</button >

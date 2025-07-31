@@ -1,0 +1,35 @@
+@page {
+    size : 22in 30in;
+    margin: 80px;
+}
+
+@media print {
+    body {
+        zoom: 1.2;
+    }
+
+    html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrap-header,
+    .wrap-sub-top,
+    .wrap-footer,
+    .btn-top-page,
+    .wrap-pop {display: none !important;}
+
+    .sub #_contentBuilder ._objTag,
+    .sub #_contentBuilder ._objHtml,
+    .sub #_contentBuilder ._objImage,
+    .sub #_contentBuilder ._objWidget,
+    .sub #_contentBuilder ._objHeading {width: 100% !important;}
+
+    .con-table table,
+    .con-table2 table {width: 100% !important;}
+    .con-table:after,
+    .con-table2:after {display: none !important;}
+}
+
+미디어 쿼리를 screen으로 작업해야 함

@@ -1,0 +1,29 @@
+$(function(){
+    $(document).on("click","._blockUI",function(){
+        if($(this).is("a")){
+            var href = $(this).attr("href");
+            //$(this).attr("target", "blockUI");
+            
+            var className = $(this).attr("class").replace("_blockUI ", "");
+            var html =  "<div class=\"_blockInner\">"+
+                        "   <a href=\"#close\" onclick=\"$.unblockUI();\" class=\"_blockClose\">close</a>"+
+                        "   <iframe name=\"blockUI\" src=\""+href+"\" class='"+className+"'></iframe>"+
+                        "</div>";
+            $.blockUI({
+                message:html,
+                bindEvents: false,
+            });
+            
+            var blockClass = $('.blockMsg').attr("class") + " "+className;
+            $('.blockMsg').attr("class", blockClass);
+            
+            console.log(1);
+            jf_blockUISizeSet();
+            console.log(2);
+            return false;
+        }
+    });
+    
+    $('.textWrap').on('click', 'div', checkFormVal);
+    
+});

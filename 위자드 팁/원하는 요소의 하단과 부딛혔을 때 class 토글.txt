@@ -1,0 +1,14 @@
+  //요소가 하단에 부딪혔을때 class
+  var scrollBtn = $(".focus-text");
+
+  $(window).scroll(function () {
+    var screenNow = $(window).scrollTop() + $(window).height(); //현재화면 bottom 값
+    var screenBottom = $('.wrap-annou').position().top;
+    console.log(screenNow);
+    console.log(screenBottom);
+    if (screenNow > screenBottom) {
+      scrollBtn.addClass("crash");
+    } else {
+      scrollBtn.removeClass("crash");
+    }
+  });

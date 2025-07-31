@@ -1,0 +1,22 @@
+$(document).ready(function(){
+  //처음 로드시 뷰포트 강제 설정
+  var $w7viewPort = $("#resResponsiveViewport");
+  if (window.matchMedia("(orientation: portrait)").matches) {
+	$w7viewPort.attr("content", "width=640, user-scalable=no");
+  }
+  if (window.matchMedia("(orientation: landscape)").matches) {
+	$w7viewPort.attr("content", "width=980, user-scalable=no");
+  }  
+  $(window).trigger("orientationchange");
+})
+
+$(window).bind("orientationchange", function(e) {
+  //디바이스 회전할때 뷰포트 강제 설정
+  var $w7viewPort = $("#resResponsiveViewport");
+  var orientation = window.orientation;
+  if (orientation == 90 || orientation == -90) {
+	$w7viewPort.attr("content", "width=980, user-scalable=no");
+  } else {
+	$w7viewPort.attr("content", "width=640, user-scalable=no");
+  }
+});

@@ -1,0 +1,301 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/jsp_header.jsp" %>
+<c:if test='${layout==null || layout==""}'>
+<%@ include file="/WEB-INF/jsp/include/user/header.jsp" %>
+    <%@ include file="/WEB-INF/jsp/fnct/imageSlide/Yon_imagesSlide_merit/view.head.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/user/body.jsp" %>
+</c:if>
+
+<c:set var='isImageNoHandlr'><c:out value="${fn:indexOf(setup.expsrStng, setup.statics['HNDLR_TY_IMAGE_NO']) >= 0}"/></c:set>
+<c:set var='isCnvrsHandlr'><c:out value="${fn:indexOf(setup.expsrStng, setup.statics['HNDLR_TY_BUTTON_CNVRS']) >= 0}"/></c:set>
+<c:set var='isPlayStopHandlr'><c:out value="${fn:indexOf(setup.expsrStng, setup.statics['HNDLR_TY_BUTTON_PLAYSTOP']) >= 0}"/></c:set>
+
+<div class="_fnctWrap">
+    <c:if test='${isManager && (layout!=null && layout!="")}'>
+        <a href="/imageSlide/fnctMngr/<c:out value='${vo.siteId }'/>/<c:out value='${vo.fnctNo }'/>/setupUpdtView.do" class="_fnctAdmin _blockUI" target="_blank">관리</a>
+    </c:if>
+
+    <h2 class="hidden"><c:out value="${setup.setupNm}"/>(<b><c:out value="${fn:length(artclList)}"/></b> 개)</h2>
+
+    <div class="wrap-merit" id="wrap-slider<c:out value='${setup.setupSeq }'/>">
+        <div class="area">
+            <div class="text">
+                <div class="slogan">
+                    <strong>Yonsei University</strong>
+                    <p>Sustainability & Quality</p>
+                </div>
+                <div class="desc">
+                    연세대학교는 140년이라는 긴 역사 속에서 쌓아온 교육의 질을 바탕으로<br>
+                    사회적 책임을 다하며 지속 가능한 발전을 추구하고 있습니다.<br>
+                    연세의 의지와 교육, 연구, 그리고 모든 대학 활동에서 최고의 수준을 유지하고자 하는<br>
+                    끊임없는 노력을 바탕으로 지속가능한 미래를 만들어 나가겠습니다.
+                </div>
+            </div>
+                
+            <div class="slide">
+                <div class="info">
+                    <div class="info-slide">
+                        <div class="slider" id="sliderA<c:out value='${setup.setupSeq }'/>">
+                            <ul class="swiper-wrapper">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumb">
+                    <div class="thumb-slide">
+                        <div class="slider" id="sliderB<c:out value='${setup.setupSeq }'/>">
+                            <ul class="swiper-wrapper">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <c:if test="${isImageNoHandlr}">
+                        <div class="paging">
+                            <ul>
+                            </ul>
+                        </div>
+                    </c:if>
+                </div>
+            </div>
+
+            <div class="side-slide1" id="sliderC<c:out value='${setup.setupSeq }'/>">
+                <ul class="swiper-wrapper">
+                </ul>
+            </div>
+
+            <div class="side-slide2" id="sliderD<c:out value='${setup.setupSeq }'/>">
+                <ul class="swiper-wrapper">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            type:"post",
+            cache:false,
+            async:true,
+            url:'/imageSlide/${vo.siteId}/${setup.setupSeq}/getJsonImageSlideArtclList.do',
+            success:function(artclList) {
+                if( $( artclList ).size() > 0 ) {
+                    $("#total${setup.setupSeq}").html($( artclList ).size());
+                    //텍스트 슬라이드
+                    var html1 = "";
+                    $( artclList ).each(function() {
+                        html1 += "<li class='swiper-slide'>";
+                        html1 += "<em>"+this.subtl+"</em>";
+                        html1 += "<strong>"+this.sj+"</strong>";
+                        html1 += "<p>"+this.cn+"</p>";
+                        html1 += "<div class='link'>";
+                        html1 += "<div class='deco'>";
+                        if(this.linkUseYn=="Y"){
+                            html1 += "<a href='"+this.urlAddr+"' ";
+                            if(this.linkTy=="_BLANK"){
+                                html1 += "target='_blank' title='새창' ";
+                            }
+                            html1 += ">";
+                        }
+                        if(this.linkUseYn=="Y"){
+                            html1 += this.alt;
+                        }   
+                        if(this.linkUseYn=="Y"){
+                            html1 += "</a>";
+                        }
+                        html1 += "</div>";
+                        html1 += "</div>";
+                        html1 += "</li>";
+                    });
+                    $( "#sliderA${setup.setupSeq} .swiper-wrapper").html( html1 );
+
+                    var meritSliderText = new Swiper("#sliderA${setup.setupSeq}", {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        speed: 1000,
+                        effect: "fade",
+                        fadeEffect: { crossFade: true },
+                        // autoplay: {
+                        //   delay: 3000,
+                        //   disableOnInteraction: false,
+                        // },
+                        loop: true,
+                        loopAdditionalSlides: 1,
+                        loopFillGroupWithBlank: true,
+                        observer: true,
+                        observeParents: true,
+                        touchRatio: 0,
+                        pagination: {
+                            el: "",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: "",
+                            prevEl: "",
+                        },
+                        on: {
+                            init: function () { },
+                            slideChange: function () { },
+                            slideChangeTransitionStart: function () { },
+                            slideChangeTransitionEnd: function () { },
+                        },
+                    });
+
+                    //중앙 이미지 슬라이드
+                    var html2 = "";
+                    $( artclList ).each(function() {
+                        html2 += "<li class='swiper-slide'>";
+                        html2 += "<div class='img'>";
+                        html2 += "<img src='"+this.imgPath+this.cnvrFile+"' alt='"+this.alt+"'>";
+                        html2 += "</div>";
+                        html2 += "</li>";
+                    });
+                    $( "#sliderB${setup.setupSeq} .swiper-wrapper").html( html2 );
+
+                    var meritSliderParent = new Swiper("#sliderB${setup.setupSeq}", {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        speed: 1000,
+                        effect: "fade",
+                        fadeEffect: { crossFade: true },
+                        autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                        },
+                        loop: true,
+                        loopAdditionalSlides: 1,
+                        loopFillGroupWithBlank: true,
+                        observer: true,
+                        observeParents: true,
+                        pagination: {
+                            el: ".wrap-merit .thumb .paging ul",
+                            clickable: true,
+                            renderBullet: function (index, className) {
+                                return '<li class="' + className + '"><button type="button">' + (index + 1) + "</button></li>";
+                            },
+                        },
+                        navigation: {
+                            nextEl: "",
+                            prevEl: "",
+                        },
+                        // thumbs: {
+                        //  swiper: meritSliderChild1,
+                        // },
+                        // controller: {
+                        //  control: [meritSliderText]
+                        // },
+                        on: {
+                            init: function () {},
+                            slideChange: function () {
+                                let index = meritSliderParent.realIndex;
+                                meritSliderChild1.slideToLoop(index + 2);
+                                meritSliderChild2.slideToLoop(index + 1);
+                                meritSliderText.slideToLoop(index);
+                             },
+                            slideChangeTransitionStart: function () { },
+                            slideChangeTransitionEnd: function () { },
+                        },
+                    });
+                    
+                    //왼쪽 작은 이미지 슬라이드
+                    var html3 = "";
+                    $( artclList ).each(function() {
+                        html3 += "<li class='swiper-slide'>";
+                        html3 += "<div class='img'>";
+                        html3 += "<img src='"+this.imgPath+this.cnvrFile+"' alt='"+this.alt+"'>";
+                        html3 += "</div>";
+                        html3 += "</li>";
+                    });
+                    $( "#sliderC${setup.setupSeq} .swiper-wrapper").html( html3 );
+
+                    var meritSliderChild1 = new Swiper("#sliderC${setup.setupSeq}", {
+                        initialSlide: 2,
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        speed: 1000,
+                        effect: "fade",
+                        fadeEffect: { crossFade: true },
+                        // autoplay: {
+                        //   delay: 3000,
+                        //   disableOnInteraction: false,
+                        // },
+                        loop: true,
+                        loopAdditionalSlides: 1,
+                        loopFillGroupWithBlank: true,
+                        observer: true,
+                        observeParents: true,
+                        touchRatio: 0,
+                        pagination: {
+                            el: "",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: "",
+                            prevEl: "",
+                        },
+                        on: {
+                            init: function () { },
+                            slideChange: function () { },
+                            slideChangeTransitionStart: function () { },
+                            slideChangeTransitionEnd: function () { },
+                        },
+                    });
+
+                    //오른쪽 작은 이미지 슬라이드
+                    var html4 = "";
+                    $( artclList ).each(function() {
+                        html4 += "<li class='swiper-slide'>";
+                        html4 += "<div class='img'>";
+                        html4 += "<img src='"+this.imgPath+this.cnvrFile+"' alt='"+this.alt+"'>";
+                        html4 += "</div>";
+                        html4 += "</li>";
+                    });
+                    $( "#sliderD${setup.setupSeq} .swiper-wrapper").html( html4 );
+
+                    var meritSliderChild2 = new Swiper("#sliderD${setup.setupSeq}", {
+                        initialSlide: 1,
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        speed: 1000,
+                        effect: "fade",
+                        fadeEffect: { crossFade: true },
+                        // autoplay: {
+                        //   delay: 3000,
+                        //   disableOnInteraction: false,
+                        // },
+                        loop: true,
+                        loopAdditionalSlides: 1,
+                        loopFillGroupWithBlank: true,
+                        observer: true,
+                        observeParents: true,
+                        touchRatio: 0,
+                        pagination: {
+                            el: "",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: "",
+                            prevEl: "",
+                        },
+                        // thumbs: {
+                        //  swiper: meritSliderChild2,
+                        // },
+                        on: {
+                            init: function () { },
+                            slideChange: function () { },
+                            slideChangeTransitionStart: function () { },
+                            slideChangeTransitionEnd: function () { },
+                        },
+                    });
+                }else{
+                    $( "#slider${setup.setupSeq}" ).html( "<li class='nodata'>생성된 데이터가 없습니다.</li>" );
+                }
+            }
+        });
+    });
+</script>
+
+<c:if test='${layout==null || layout==""}'>
+<%@ include file="/WEB-INF/jsp/include/user/footer.jsp" %>
+</c:if>

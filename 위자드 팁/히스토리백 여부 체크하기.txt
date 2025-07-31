@@ -1,0 +1,12 @@
+$(window).on('pageshow', function (event) {
+    if (event.originalEvent.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        // console.log('히스토리 백으로 열림');
+        $("body").addClass("history");
+    } else {
+        if (history.length == 1 || history.length == 2) {
+            $("body").addClass("nonhistory");
+        } else {
+            $("body").addClass("history");
+        }
+    }
+});

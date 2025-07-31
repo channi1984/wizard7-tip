@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/sites/[::siteId::]/style/css/vendor/jquery.fancybox.min.css">
+
+
+
+<script src="/sites/[::siteId::]/style/js/vendor/jquery.fancybox.min.js?version=1"></script>
+
+
+
+<a href="/sites/ctl/images/sub/ogran.png" data-fancybox="gallery" data-caption="조직도"> <img src="/sites/ctl/images/sub/ogran.png" alt="조직도"> </a>
+

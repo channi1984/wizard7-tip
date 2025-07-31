@@ -1,0 +1,4 @@
+<!-- 팝업존 -->
+    <c:set var="url"><k:url value="/imageSlide/sc/89/view"/></c:set>
+    <c:import url="${url}" charEncoding="utf-8"/>
+<!-- //팝업존 -->

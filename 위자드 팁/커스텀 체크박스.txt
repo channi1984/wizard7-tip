@@ -1,0 +1,42 @@
+
+
+<style>
+.cm-check {position: relative;}
+.cm-check input {position: absolute; opacity: 0;}
+.cm-check span {display: inline-block; position: relative; font-size: 15px; color: #333333; font-family: pm; letter-spacing: 0;}
+.cm-check span::before {content: ""; position: absolute;}
+
+.cm-check.style1 span {padding-left: 27px; line-height: 30px;}
+.cm-check.style1.solo span {height: 18px;}
+.cm-check.style1 span::before {width: 18px; height: 18px; border: 1px solid #9B9B9B; left: 0; top: 6px; border-radius: 4px; background: #fff;}
+.cm-check.style1.solo span::before {top: 3px;}
+.cm-check.style1 input:focus + span::before {border-color: #186DDE;}
+.cm-check.style1 input:checked + span::before {background: #186DDE url("../../images/func/ic_check_on.png") no-repeat center; border-color: #186DDE;}
+.cm-check.style1 input:checked + span {color: #000;}
+.cm-check.style1.read-yes input + span::before {background: #999 url("../../images/func/ic_check_on.png") no-repeat center; border-color: #999;}
+.cm-check.style1.read-no input + span::before {background: #eaeaea; border-color: #9B9B9B;}
+
+.cm-radio {position: relative;}
+.cm-radio input {position: absolute; opacity: 0;}
+.cm-radio span {display: inline-block; position: relative; font-size: 15px; color: #333333; font-family: pm; letter-spacing: 0;}
+.cm-radio span::before {content: ""; position: absolute;}
+
+.cm-radio.style1 span {padding-left: 27px; line-height: 30px;}
+.cm-radio.style1.solo span {height: 18px;}
+.cm-radio.style1 span::before {width: 18px; height: 18px; border: 1px solid #c6c6c6; left: 0; top: 6px; border-radius: 100%; background: #fff;}
+.cm-radio.style1.solo span::before {top: 3px;}
+.cm-radio.style1 input:focus + span::before {border-color: #186DDE;}
+.cm-radio.style1 input:checked + span::after {content: ''; position: absolute; left: 4px; top: 10px; width: 10px; height: 10px; background: #1473e6; border-radius: 100%;}
+.cm-radio.style1 input:checked + span {color: #000;}
+</style>
+
+
+<label for="sms" class="cm-check style1">
+     <input type="checkbox" id="sms" title="SMS 수신설정 체크박스">
+     <span>고객의 소리 답변 여부를 SMS로 받겠습니다.</span>
+</label> 
+
+<label for="yes" class="cm-radio style1">
+     <input type="radio" name="bosang" id="yes" title="보상요청여부 선택">
+     <span>예</span>
+</label>

@@ -1,0 +1,19 @@
+[수정 파일 위치]
+/Web-home/fnct/bbs/board_normal_a/js/artclRegistView.js
+
+[코드]
+if($("#EDITOR_AREA_CONTAINER").length > 0){
+        var editorLang = "enu";
+        if(klang == "ja"){
+            editorLang = "jpn";
+        }else if(klang == "zh"){
+            editorLang = "chs";
+        }else if(klang == "ko"){
+            editorLang = "kor";
+        }
+        CrossEditor = new NamoSE('editor');
+        CrossEditor.params.ParentEditor = $("#EDITOR_AREA_CONTAINER").get(0);
+        CrossEditor.params.UserLang = editorLang;
+        CrossEditor.params.Width = "100%";  //이 부분을 추가
+        CrossEditor.EditorStart();
+    } 
