@@ -1,0 +1,14 @@
+	//접근성 대응
+	var focusSwitch = function (target, switching) {
+		if (switching === 'show') {
+			$(target).attr('tabindex', 0);
+			$(target).attr('aria-hidden', false);
+		} else if (switching === 'hide') {
+			$(target).attr('tabindex', -1);
+			$(target).attr('aria-hidden', true);
+		}
+	}
+
+	var focusIn = function (target) {
+		$(target).focus();
+	}
