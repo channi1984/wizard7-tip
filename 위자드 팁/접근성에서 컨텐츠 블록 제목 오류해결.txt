@@ -1,0 +1,9 @@
+	//[접근성] 컨텐츠 블록 제목 넣기
+	$('#multipleDiv_empty_2').prepend('<h2 class="hidden2">비주얼 컨텐츠</h2>');
+	$('#multipleDiv_kr_4').prepend('<h2 class="hidden2">히스토리 컨텐츠</h2>');
+	$('#multipleDiv_kr_6').prepend('<h2 class="hidden2">학교현황 컨텐츠</h2>');
+	$('#multipleDiv_kr_8').prepend('<h2 class="hidden2">서비스 배너 컨텐츠</h2>');
+	$('#multipleDiv_kr_11').prepend('<h2 class="hidden2">학사일정 컨텐츠</h2>');
+	$('#multipleDiv_kr_13').prepend('<h2 class="hidden2">뉴스 컨텐츠</h2>');
+	$('#multipleDiv_kr_15').prepend('<h2 class="hidden2">공지사항 컨텐츠</h2>');
+	$('#multipleDiv_kr_17').prepend('<h2 class="hidden2">SNS 컨텐츠</h2>');
