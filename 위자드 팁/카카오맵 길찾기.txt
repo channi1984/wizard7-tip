@@ -1,0 +1,3 @@
+<a href="https://kko.kakao.com/ZVgGhpg4tw" class="map-btn" target="_blank" title="새창">카카오맵에서 길찾기</a>
+
+https://kko.kakao.com/ZVgGhpg4tw <- 이 값은 카카오 지도에서 공유하기 URL 복사를 하면 됨
