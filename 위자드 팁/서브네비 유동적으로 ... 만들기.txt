@@ -1,5 +1,9 @@
 https://mnd.k2web.co.kr/pkoeng/1343/subview.do
 
+.wrap-sub-util .sub-navi .inner {
+	display: grid
+}
+
 .wrap-sub-util .sub-navi > ul {
 	display: grid;
     grid-auto-flow: column;
@@ -7,7 +11,6 @@ https://mnd.k2web.co.kr/pkoeng/1343/subview.do
 
 .wrap-sub-util .sub-navi > ul > li {
 	white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 
